@@ -9,7 +9,7 @@ import { createGift, getAllGift } from './controllers/GiftController.js'
 
 
 mongoose
-.connect('mongodb+srv://admin:admin@admin.cx8mkpo.mongodb.net/deploy?retryWrites=true&w=majority&appName=admin') 
+.connect(process.env.MONGODB_URL) 
 .then(() => console.log('its okey!'))
 .catch((err) => console.log('error', err))
 
@@ -35,4 +35,4 @@ app.get('/reviews', getReviews)
 
 
 
-app.listen(3002, console.log('its okey'))
+app.listen(process.env.PORT || 3002, console.log('its okey'))
